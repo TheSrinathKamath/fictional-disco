@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NetworkService } from 'src/app/helpers/network.service';
 import { NotifierService } from 'src/app/helpers/notifier.service';
 
@@ -10,7 +11,8 @@ import { NotifierService } from 'src/app/helpers/notifier.service';
 export class OfflineComponent implements OnInit {
   constructor(
     private networkService: NetworkService,
-    private notifier: NotifierService
+    private notifier: NotifierService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -28,6 +30,6 @@ export class OfflineComponent implements OnInit {
       'OK',
       'success'
     );
-    return window.location.replace('');
+    return this.router.navigate(['/']);
   }
 }
